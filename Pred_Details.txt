@@ -1,12 +1,9 @@
-Model_1: Future sales prediction
+Model_1: Binary Classification with a Bank Churn Dataset
 
 Dataset Description
-You are provided with daily historical sales data. The task is to forecast the total amount of products sold in every shop for the test set. Note that the list of shops and products slightly changes every month. Creating a robust model that can handle such situations is part of the challenge.
+The dataset for this competition (both train and test) was generated from a deep learning model trained on the Bank Customer Churn Prediction dataset. Feature distributions are close to, but not exactly the same, as the original. Feel free to use the original dataset as part of this competition, both to explore differences as well as to see whether incorporating the original in training improves model performance.
 
-File descriptions
-sales_train.csv - the training set. Daily historical data from January 2013 to October 2015.
-test.csv - the test set. You need to forecast the sales for these shops and products for November 2015.
-sample_submission.csv - a sample submission file in the correct format.
-items.csv - supplemental information about the items/products.
-item_categories.csv  - supplemental information about the items categories.
-shops.csv- supplemental information about the shops.
+Files
+train.csv - the training dataset; Exited is the binary target
+test.csv - the test dataset; your objective is to predict the probability of Exited
+sample_submission.csv - a sample submission file in the correct format
