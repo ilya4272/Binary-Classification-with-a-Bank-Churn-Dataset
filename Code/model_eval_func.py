@@ -37,7 +37,7 @@ def evaluate_model_performance(clf, X_train, X_test, y_train, y_test):
     x = np.arange(len(metrics))  # the label locations
     width = 0.35  # the width of the bars
 
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(5, 3))
     rects1 = ax.bar(
         x - width / 2, train_scores, width, label="Train", color="blue", alpha=0.6
     )
@@ -69,19 +69,16 @@ def evaluate_model(clf, X_train, X_test, y_train, y_test):
     y_test_proba = clf.predict_proba(X_test)[:, 1]
 
     # Eğitim seti performansı
-    train_accuracy = accuracy_score(y_train, y_train_pred)
+    # train_accuracy = accuracy_score(y_train, y_train_pred)
     train_roc_auc = roc_auc_score(y_train, y_train_proba)
-    train_report = classification_report(y_train, y_train_pred)
+    # train_report = classification_report(y_train, y_train_pred)
 
     # Test seti performansı
-    test_accuracy = accuracy_score(y_test, y_test_pred)
+    # test_accuracy = accuracy_score(y_test, y_test_pred)
     test_roc_auc = roc_auc_score(y_test, y_test_proba)
-    test_report = classification_report(y_test, y_test_pred)
+    # test_report = classification_report(y_test, y_test_pred)
 
     # Sonuçları yazdırma
-    print(f"Training Accuracy: {train_accuracy}")
     print(f"Training ROC AUC: {train_roc_auc}")
-    print("")
-    print(f"Test Accuracy: {test_accuracy}")
     print("")
     print(f"***Test ROC AUC: {test_roc_auc}***")
