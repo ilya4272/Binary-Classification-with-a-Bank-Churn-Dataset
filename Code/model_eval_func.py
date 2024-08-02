@@ -82,3 +82,24 @@ def evaluate_model(clf, X_train, X_test, y_train, y_test):
     print(f"Training ROC AUC: {train_roc_auc}")
     print("")
     print(f"***Test ROC AUC: {test_roc_auc}***")
+
+
+def evaluate_model_loss(clf, X_train, X_test, y_train, y_test):
+
+    # Modeli eğit
+    clf.fit(X_train, y_train)
+
+    # Modelin eğitim ve test setleri üzerindeki performansını değerlendirme
+    y_train_proba = clf.predict_proba(X_train)
+    y_test_proba = clf.predict_proba(X_test)
+
+    # Eğitim seti performansı
+    train_log_loss = log_loss(y_train, y_train_proba)
+
+    # Test seti performansı
+    test_log_loss = log_loss(y_test, y_test_proba)
+
+    # Sonuçları yazdırma
+    print(f"Training Log Loss: {train_log_loss}")
+    print("")
+    print(f"***Test Log Loss: {test_log_loss}***")
