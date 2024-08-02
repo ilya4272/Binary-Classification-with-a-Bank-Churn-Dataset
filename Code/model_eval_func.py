@@ -1,5 +1,9 @@
-import numpy as np
+# Data Manipulation and Cleaning Libraries
+import pandas as pd  # For data manipulation and data frames
+import numpy as np  # For numerical operations and arrays
 import matplotlib.pyplot as plt
+
+
 from sklearn.metrics import (
     accuracy_score,
     roc_auc_score,
@@ -60,23 +64,19 @@ def evaluate_model_performance(clf, X_train, X_test, y_train, y_test):
 # Function 2 -----------------------------------------------------------------------------------
 
 
+# Modeli değerlendirme fonksiyonu
 def evaluate_model(clf, X_train, X_test, y_train, y_test):
+    global benchmark_results
+
     # Modelin eğitim ve test setleri üzerindeki performansını değerlendirme
-    # Tahmin olasılıklarını ve tahminleri hesaplama
-    y_train_pred = clf.predict(X_train)
     y_train_proba = clf.predict_proba(X_train)[:, 1]
-    y_test_pred = clf.predict(X_test)
     y_test_proba = clf.predict_proba(X_test)[:, 1]
 
     # Eğitim seti performansı
-    # train_accuracy = accuracy_score(y_train, y_train_pred)
     train_roc_auc = roc_auc_score(y_train, y_train_proba)
-    # train_report = classification_report(y_train, y_train_pred)
 
     # Test seti performansı
-    # test_accuracy = accuracy_score(y_test, y_test_pred)
     test_roc_auc = roc_auc_score(y_test, y_test_proba)
-    # test_report = classification_report(y_test, y_test_pred)
 
     # Sonuçları yazdırma
     print(f"Training ROC AUC: {train_roc_auc}")
